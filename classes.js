@@ -28,9 +28,31 @@
 
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
-
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height;
+//     this.width = width;
+//   }
+// }
 //Code Here
 
+class Employee {
+  constructor(first_name, last_name, email, age)
+  {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+
+  }
+
+  makeWidget(first_name, last_name)
+  {
+return  this.first_name+' ' + this.last_name+' ' + 'Widget';
+  
+  }
+
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -50,8 +72,29 @@
 */
 
 //Code Here
+class Manager {
+  constructor(first_name, last_name, email, age, )
+  {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
 
-
+  }
+  hire(employee)
+  {
+    return this.reports.push(employee);
+  
+  }
+  fire(index)
+  {
+    return this.reports.splice(index,1);
+  }
+}
+// var mgr = new Manager();
+// mgr.hire();
+// mgr.fire();
 
 ////////// PROBLEM 3 //////////
 
@@ -78,6 +121,50 @@
 //Code Here
 
 
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age,reports, title,bonus )
+  {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title ='Not a manager';
+    this.bonus = 0;
+  }
+  title(bonus){
+  if(bonus == 0)
+  return this.title='Not a manager';
+else if(bonus>=1 && bonus<=3)
+return this.title = 'Barely Manager';
+else if(bonus>=4 && bonus<=10)
+return this.title=' Mostly Manager';
+else if(bonus>=11 && bonus<=50)
+return this.title= 'Manager';
+else if(bonus>=51 && bonus<=100)
+  return this.title = 'Manager Plus';
+  else if (bonus>101)
+  return  this.title ='Bestest Manager';
+}
+
+hire(employee)
+  {
+    return this.reports.push(employee);
+  
+  }
+
+  fire(index)
+  {
+
+    this.reports.splice(index,1);
+    this.bonus += 100;
+    console.log( bonus);
+    
+  }
+}
+
+
+var mgr1 = new ProgressiveManager;
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -101,7 +188,30 @@
         - This function returns a function that is called when the machine is done rebooting
         - It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
-
 //Code Here
+class Machine{
+  constructor(){
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
 
+makeWidgets(num)
+{
+  this.widgets_made_count += num;
+  this.wear_and_tear_count += num/50;
+}
 
+fixMachine(){
+  return this.needs_reboot = true;
+}
+
+reboot() {
+  return ()=>
+  {
+this.wear_and_tear_count -= 10;
+this.needs_reboot=false;
+}
+}
+
+}

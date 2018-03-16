@@ -16,6 +16,7 @@ var carDetails = {
   year: 1994
 }
 // Do not edit the code above.
+var {color , make, model, year} = carDetails;
 
 /*
   Use object destructuring to save the property values from the object carDetails into new variables. 
@@ -23,27 +24,33 @@ var carDetails = {
 
 //Code Here
 
-
+var {color , make, model, year} = newCarDetails;
 
 ////////// PROBLEM 2 //////////
 
 /*
   In the function below named greeting, it is receiving an object as a parameter. 
   Use object destructuring to save the object properties to new variables. 
-  The property names are firstName, lastName, and title.
-*/
+//   The property names are firstName, lastName, and title.
+// */
 
 function greeting( obj ) {
-  //Code Here
-  
-  // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
-  // Do not edit the code above.
+//   //Code Here
+var { firstName, lastName, title} = newVar;
+return newVar;
+
 }
+  
+//   // Do not edit the code below.
+// return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+//   // Do not edit the code above.
+// }
 
 
 
-////////// PROBLEM 3 //////////
+// //var {firstName, lastName, title} = newVar;
+
+// ////////// PROBLEM 3 //////////
 
 /*
   Write a function called totalPopulation that will take in an object.
@@ -53,10 +60,13 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
-
-
-
+// //Code Here
+function totalPopulation(obj)
+{
+  var {utah, california, texas, arizona} = newValues;
+ var total = newValues.utah+newValues.california+newValues.texas+newValues.arizona;
+ return total;
+}
 ////////// PROBLEM 4 //////////
 
 /*
@@ -68,6 +78,16 @@ function greeting( obj ) {
 */
 
 //Code Here
+function ingredients(obj)
+{
+  var {carbs, fat, protein} = newValues;
+  var arr = [];
+  arr.push(newValues.carbs);
+  arr.push(newValues.fat);
+  arr.push(newValues.protein);
+  console.log (arr);
+}
+
 
 
 
@@ -86,6 +106,8 @@ function greeting( obj ) {
 */
 
 //Code Here
+
+
 
 
 

@@ -7,42 +7,50 @@
 */
 
 /*
-  First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
+  First we'll look at the difference between accessing property values in a for in loop and accessing the
+   property name in a for in loop.
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  //console.log(values[key]);
+}
 
 /*
-  In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
+  In this next example, we are accessing the property names themselves. Uncomment the code below, 
+  run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for(var key in values) {
+  //console.log(key)
+}
 
 
 
 ////////// PROBLEM 1 //////////
 
 /*
-  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
+  Inside the function showValues, write a for in loop that concatenates each of the property 
+  values and returns the concatenated string.
 */
 
-function showValues( obj ) {
-  //Code Here
-}
-
+// function showValues( obj ) {
+//   //Code Here
+//   for(var key in obj) {
+//     var newObj = obj.assign({}, obj);
+    
+//     return newObj;
+// }
+// }
+// showValues(values);
 
 
 ////////// PROBLEM 2 //////////
@@ -54,7 +62,28 @@ function showValues( obj ) {
 */
 
 //Code Here
+var obj={
+  one : 10,
+  tow :20,
+}
 
+function greaterThan10(obj)
+{
+  //console.log(key);
+  
+    for(var key in obj) {
+      //console.log(obj[key]);
+    if (obj[key]>10)
+    {
+      obj[key]=0;
+    
+    }
+    //else return key;
+  }
+//console.log(obj);
+  return obj;
+}
+greaterThan10(obj);
 
 
 ////////// PROBLEM 3 //////////
@@ -66,6 +95,22 @@ function showValues( obj ) {
 */
 
 //Code Here
+
+var obj={
+  one : 10,
+  tow :20,
+}
+function double(obj)
+{
+  for(var key in obj) {
+  obj[key] *= 2;
+  //console.log(obj[key]);
+    
+    }
+    return obj;
+}
+
+double(obj);
 
 
 
@@ -80,7 +125,28 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+var obj={
+  one : 'shhhabc',
+  tow :'I really, really love javascript!'
+}
+function secrets(obj)
+{
+  let str ='';
+  for(var key in obj)
+  {
+    if(obj[key].startsWith('sh'))
+    {
+     
+      let str2=obj[key];
+      //console.log(str2);
+     str= str.concat(str2);
+      
+    }
+    console.log(str);
+  }
+return str;
+}
+secrets(obj);
 
 
 /* 
@@ -111,6 +177,14 @@ function showValues( obj ) {
 */
 
 //Code Here
+function removePassword(obj){
+  for (var key in obj)
+  {
+    delete obj[password];
+  }
+  return obj;
+}
+
 
 
 
@@ -126,10 +200,19 @@ var deleteTheBigNumbers = {
 // Do not edit the code above.
 
 /*
-  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
+  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is 
+  greater than 100.
 */
 
 //Code Here
+for(var key in deleteTheBigNumbers){
+if(deleteTheBigNumbers[key]>100)
+{
+  delete deleteTheBigNumbers[key];
+}
+//return deleteTheBigNumbers;
+}
+
 
 
 
@@ -143,7 +226,18 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function startsWithK(obj)
+{
+  console.log(obj);
+  for(var key in obj)
+  {
+    if(key.startsWith('k'))
+    console.log(key);
+   // delete key;
+  }
+  console.log(startsWithK);
+  return startsWithK;
+}
 
 
 ////////// PROBLEM 8 //////////

@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./nesting.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -44,15 +43,31 @@ var employees = [
 // Do not edit the code above.
 
 /*
-  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array above and perform the following:
+  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over 
+  the array above and perform the following:
     1. If employee's first name is Theo, remove that employee because he just got fired.
     2. If the employee's first name is Lorie, change her department to 'HR'.
     3. Return the updated employee array.
 */
 
 //Code Here
+function employeeUpdater(){
+  for(var i =0; i<employees.length; i++)
+  {
+    //console.log(employees[i].firstName)
+    if(employees[i].firstName == 'Theo')
+    {
+      employees.splice(i,1);
+    }
+    else if(employees[i].firstName == 'Lorie'){
+       employees[i].department = 'HR';
+      //console.log(employees.department);
+    }
+   // console.log(employees);
+  }
+  return employees;
 
-
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -62,15 +77,30 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 /*
   The array above represents IDs tied to reported workplace accidents. 
-  An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are.
-    1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
+  An employee accidentally entered in duplicates to array, making it look as though there are
+   more accidents this year than there actually are.
+    1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the 
+    workplaceAccidents array.
     2. Use nested for loops to check for duplicate numbers, and then remove the duplicates from the array.
     3. Return the updated array.
 */
-
 //Code Here
-
-
+function removeDuplicates(){
+  for(var i= 0; i<=workplaceAccidents.length;i++)
+  {
+    //console.log('1', i, workplaceAccidents[i]);
+    for (var j=i+1; j<=workplaceAccidents.length;j++){
+      //console.log('2', j, workplaceAccidents[j]);
+      if(i != j && workplaceAccidents[i]==workplaceAccidents[j])
+      {
+        workplaceAccidents.splice(i,1);
+        //console.log(workplaceAccidents);
+      }
+    }
+    }
+    //console.log(workplaceAccidents);
+return workplaceAccidents;
+  }
 
 ////////// PROBLEM 3 //////////
 
@@ -97,11 +127,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
-
-
-
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend =  cat.catFriends[1].name;
 ////////// PROBLEM 4 //////////
 
 // Do not edit the code below.
@@ -109,6 +136,7 @@ var myCar = {
   make: 'Toyota',
   model: 'Corolla',
   year: 1992,
+
   accidents: [
     {
       date: '3/15/93',
@@ -139,13 +167,29 @@ var myCar = {
 */
 
 //Code Here
+function recordCleaner(myCar){
+  console.log(myCar.accidents);
+  //for(var i=0; i<myCar.accidents.length; i++)
+  for(var key in myCar)
+  {
+    console.log("inside");
+    key.accidents[i].atFaultForAccident = false;
+  }
+  //console.log(myCars.accidents);
+//return atFaultForAccident;
+}
+
 
 
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [ [1, 2, 3, 4],
+ [5, 6], 
+ [7, 8, 9, 10, 11]
+];
+console.log(numsArr[0][1]);
 // Do not edit the code above.
 
 /*
@@ -158,5 +202,18 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+function looper(){
+  for (var i = 0; i< numsArr.length; i++)
+  {
+    for(var j=0; j<numsArr[i].length; j++)
+    {
+     if(( numsArr[i][j]%2)===0)
+     numsArr[i][j] = 'even';
+     else
+     numsArr[i][j]='odd';
+    }
+   // console.log(numsArr);
+  }
 
-
+return numsArr;
+}
