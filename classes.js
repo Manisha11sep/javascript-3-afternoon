@@ -99,13 +99,15 @@ class Manager {
 ////////// PROBLEM 3 //////////
 
 /*
-  Managers for Widget Co. get promoted when they get more employees, and get a bonus when they fire employees.
+  Managers for Widget Co. get promoted when they get more employees, and get a bonus
+   when they fire employees.
   Progressive Managers have all the same properties as the manager,
   but they also have the following additional properties:
     - title - default 'Not a manager'
     - bonus - default 0
 
-  When employees are added or removed we need to check and update their title. Their titles are as follows:
+  When employees are added or removed we need to check and update their title.
+   Their titles are as follows:
     0 : Not a manager
     1-3 : Barely Manager
     4-10 : Mostly Manager
@@ -132,38 +134,29 @@ class ProgressiveManager {
     this.title ='Not a manager';
     this.bonus = 0;
   }
-  title(bonus){
-  if(bonus == 0)
-  return this.title='Not a manager';
-else if(bonus>=1 && bonus<=3)
-return this.title = 'Barely Manager';
-else if(bonus>=4 && bonus<=10)
-return this.title=' Mostly Manager';
-else if(bonus>=11 && bonus<=50)
-return this.title= 'Manager';
-else if(bonus>=51 && bonus<=100)
-  return this.title = 'Manager Plus';
-  else if (bonus>101)
-  return  this.title ='Bestest Manager';
-}
+ 
 
-hire(employee)
-  {
-    return this.reports.push(employee);
-  
+hire(employee){
+   //this.reports.push(employee);
+  if (employee>=101)
+      this.title ='Bestest Manager';
+     else if(employee>=51 )
+     this.title = 'Manager Plus';
+     else if(employee>=11)
+     this.title= 'Manager';
+     else if(employee>=4 )
+     this.title=' Mostly Manager';
+     else if(employee>=1)
+     this.title = 'Barely Manager';
+     else this.title='Not a manager';
   }
 
-  fire(index)
-  {
-
-    this.reports.splice(index,1);
+  fire(index){
+   this.reports.splice(index,1);
     this.bonus += 100;
-    console.log( bonus);
-    
+    console.log( bonus); 
   }
 }
-
-
 var mgr1 = new ProgressiveManager;
 
 ////////// PROBLEM 4 - Black Diamond //////////

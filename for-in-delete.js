@@ -9,7 +9,8 @@
 /*
   First we'll look at the difference between accessing property values in a for in loop and accessing the
    property name in a for in loop.
-  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
+  In the example below, we are accessing the property values. 
+  Uncomment the code below, run it and look at what prints in the console.
 */
 
 var values = {
@@ -21,7 +22,7 @@ var values = {
 } 
 
 for(var key in values) {
-  //console.log(values[key]);
+  console.log("Property are "+values[key]);
 }
 
 /*
@@ -30,7 +31,7 @@ for(var key in values) {
 */
 
 for(var key in values) {
-  //console.log(key)
+  console.log(key)
 }
 
 
@@ -42,15 +43,16 @@ for(var key in values) {
   values and returns the concatenated string.
 */
 
-// function showValues( obj ) {
-//   //Code Here
-//   for(var key in obj) {
-//     var newObj = obj.assign({}, obj);
-    
-//     return newObj;
-// }
-// }
-// showValues(values);
+function showValues( obj ) {
+  //Code Here
+  var str = '';
+  for(var key in obj) {
+    str+=obj[key];
+    console.log(str);
+}
+return str;
+}
+showValues(values);
 
 
 ////////// PROBLEM 2 //////////
@@ -123,27 +125,20 @@ double(obj);
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
-
 //Code Here
 var obj={
   one : 'shhhabc',
   tow :'I really, really love javascript!'
 }
-function secrets(obj)
-{
+function secrets(obj){
   let str ='';
-  for(var key in obj)
-  {
-    if(obj[key].startsWith('sh'))
-    {
-     
-      let str2=obj[key];
-      //console.log(str2);
-     str= str.concat(str2);
-      
+  for(var key in obj){
+    if(key.startsWith('sh')){
+       str+=obj[key];
     }
-    console.log(str);
+   
   }
+  console.log(str);
 return str;
 }
 secrets(obj);
@@ -155,17 +150,17 @@ secrets(obj);
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for(var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings)
 
 
 
@@ -180,13 +175,16 @@ secrets(obj);
 function removePassword(obj){
   for (var key in obj)
   {
-    delete obj[password];
+    if(key == 'password')
+    {
+      console.log("value to delte is "+key);
+      delete obj[key];
+    }
   }
+  console.log("obj value is " + obj);
   return obj;
+
 }
-
-
-
 
 ////////// PROBLEM 6 //////////
 
@@ -210,7 +208,6 @@ if(deleteTheBigNumbers[key]>100)
 {
   delete deleteTheBigNumbers[key];
 }
-//return deleteTheBigNumbers;
 }
 
 
@@ -228,15 +225,11 @@ if(deleteTheBigNumbers[key]>100)
 //Code Here
 function startsWithK(obj)
 {
-  console.log(obj);
-  for(var key in obj)
-  {
+  for(var key in obj){
     if(key.startsWith('k'))
-    console.log(key);
-   // delete key;
+     delete obj[key];
   }
-  console.log(startsWithK);
-  return startsWithK;
+return obj;
 }
 
 
@@ -252,5 +245,14 @@ function startsWithK(obj)
 */
 
 //Code Here
+
+function hiddenTreasure(obj){
+  for (var key in obj){
+    if(!obj[key].includes('treasure'))
+      delete obj[key];
+  }
+console.log("treasure object is "+ JSON.stringify(obj));
+  return obj;
+}
 
 

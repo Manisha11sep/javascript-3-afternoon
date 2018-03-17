@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./destructuring.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -16,41 +15,36 @@ var carDetails = {
   year: 1994
 }
 // Do not edit the code above.
-var {color , make, model, year} = carDetails;
 
 /*
-  Use object destructuring to save the property values from the object carDetails into new variables. 
+  Use object destructuring to save the property values from the object carDetails
+   into new variables. 
 */
 
 //Code Here
 
-var {color , make, model, year} = newCarDetails;
+var {color, make, model, year} = carDetails;
 
 ////////// PROBLEM 2 //////////
 
 /*
   In the function below named greeting, it is receiving an object as a parameter. 
   Use object destructuring to save the object properties to new variables. 
-//   The property names are firstName, lastName, and title.
-// */
+  The property names are firstName, lastName, and title.
+*/
 
 function greeting( obj ) {
-//   //Code Here
-var { firstName, lastName, title} = newVar;
-return newVar;
-
-}
+  //Code Here
+  var {firstName , lastName , title} = obj;
   
-//   // Do not edit the code below.
-// return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
-//   // Do not edit the code above.
-// }
+  // Do not edit the code below.
+  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  // Do not edit the code above.
+}
 
 
 
-// //var {firstName, lastName, title} = newVar;
-
-// ////////// PROBLEM 3 //////////
+////////// PROBLEM 3 //////////
 
 /*
   Write a function called totalPopulation that will take in an object.
@@ -60,13 +54,13 @@ return newVar;
   Sum up the values and return the total number.
 */
 
-// //Code Here
-function totalPopulation(obj)
-{
-  var {utah, california, texas, arizona} = newValues;
- var total = newValues.utah+newValues.california+newValues.texas+newValues.arizona;
- return total;
+//Code Here
+
+function totalPopulation(obj){
+  var {utah, california, texas, arizona} = obj;
+  return utah+california+texas+arizona;
 }
+
 ////////// PROBLEM 4 //////////
 
 /*
@@ -78,38 +72,38 @@ function totalPopulation(obj)
 */
 
 //Code Here
-function ingredients(obj)
-{
-  var {carbs, fat, protein} = newValues;
-  var arr = [];
-  arr.push(newValues.carbs);
-  arr.push(newValues.fat);
-  arr.push(newValues.protein);
-  console.log (arr);
+
+function ingredients(obj){
+  var {carb, fat, protein}= obj;
+  var newArr=[];
+   newArr.push(carb,fat,protein);
+   console.log(newArr);
+   return newArr;
 }
-
-
 
 
 ////////// PROBLEM 5 //////////
 
 /*
-  Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration.
+  Now we will use object destructuring as the function's parameter instead of 
+  destructuring the object inside of the function declaration.
   Example:
     function example( {one, two, three} ) {
       return one + two + three
     }
-
   Write a function called largeNumbers that will take a destructured object as it's parameter.
   The object properties will be named first, second, and third and their values will be numbers.
   Find the smallest number of the three and return that number.
 */
 
 //Code Here
-
-
-
-
+function largeNumbers({first, second, third}){
+  if(first  < second) {
+    return first < third ? first : third;
+  } else {
+    return second < third ? second : third;  
+  }
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -120,5 +114,13 @@ function ingredients(obj)
 */
 
 //Code Here
-
+function numberGroups({a,b,c}){
+  if(a.length > b.length)
+  {
+    return a.length > c.length ? a : c;
+  }
+else{
+  return b.length > c.length ? b : c;
+}
+}
 

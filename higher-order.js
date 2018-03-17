@@ -65,11 +65,9 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 
 //Code Here
 
-
-
 let totalPopulation = populations.reduce(
-  (accumulator, currentValue, currentIndex, array) => {
-    return accumulator + currentValue;
+  (accumulator, currentValue) => {
+   return accumulator + currentValue;
   },0)
 
 
@@ -110,17 +108,13 @@ const orders = [{"price":15,"tax":0.09},
 // Do not edit code above.
 
 /*
-  Use a higher order method to get the sum of all the order totals after adding in the sales tax
+  Use a higher order method to get the sum of all the order totals after 
+  adding in the sales tax
 */
 
-let ordersTotal =orders.reduce(
-  (accumulator, currentValue, currentIndex, array) => {
-    console.log( accumulator + currentValue.tax);
-    return accumulator + currentValue;
-  },0)
-  //   
-  // })
+let ordersTotal =orders.map(currentValue => currentValue.price + currentValue.tax);
 
+  
 
 
 ////////// PROBLEM 6 //////////
@@ -141,12 +135,14 @@ const purchases = [{"owner":"Barry","price":103},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-// let bobsTotal =purchases.reduce(accumulator, currentValue)=>{
-// if(currentValue.owner = 'Bob')
-// {
-// return accumulator+=price;
-// }, 0)
-// }
+let bobsTotal = purchases.reduce((accumulator, currentValue) => {
+  if(currentValue.owner =='Bob') {
+    return accumulator += currentValue.price;
+   
+  }
+
+  return accumulator;
+}, 0);
 
 
 

@@ -74,7 +74,6 @@ function employeeUpdater(){
 // Do not edit the code below.
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 // Do not edit the code above.
-
 /*
   The array above represents IDs tied to reported workplace accidents. 
   An employee accidentally entered in duplicates to array, making it look as though there are
@@ -86,21 +85,19 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 //Code Here
 function removeDuplicates(){
-  for(var i= 0; i<=workplaceAccidents.length;i++)
-  {
-    //console.log('1', i, workplaceAccidents[i]);
-    for (var j=i+1; j<=workplaceAccidents.length;j++){
+  for(var i= 0; i<=workplaceAccidents.length;i++) {
+    for (var j=i+1; j<=workplaceAccidents.length;j++) {
       //console.log('2', j, workplaceAccidents[j]);
-      if(i != j && workplaceAccidents[i]==workplaceAccidents[j])
-      {
-        workplaceAccidents.splice(i,1);
-        //console.log(workplaceAccidents);
+      if(i != j && workplaceAccidents[i]==workplaceAccidents[j]) {
+        workplaceAccidents.splice(j,1);
+        
       }
     }
-    }
-    //console.log(workplaceAccidents);
-return workplaceAccidents;
   }
+  //console.log("not duplicates are "+ workplaceAccidents);
+  
+  return workplaceAccidents;
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -167,19 +164,17 @@ var myCar = {
 */
 
 //Code Here
-function recordCleaner(myCar){
-  console.log(myCar.accidents);
-  //for(var i=0; i<myCar.accidents.length; i++)
-  for(var key in myCar)
-  {
-    console.log("inside");
-    key.accidents[i].atFaultForAccident = false;
+function recordCleaner(){
+  // for(let i = 0; i < myCar.accidents.length; i++) {
+  //   myCar.accidents[i].atFaultForAccident = false;
+  // }
+  // console.log(myCar.accidents)
+
+  let { accidents } = myCar;
+  for(let record of accidents) {
+    record.atFaultForAccident = false;
   }
-  //console.log(myCars.accidents);
-//return atFaultForAccident;
 }
-
-
 
 
 ////////// PROBLEM 5 //////////
